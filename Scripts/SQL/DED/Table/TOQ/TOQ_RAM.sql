@@ -1,0 +1,20 @@
+CREATE TABLE [stng].[TOQ_RAM](
+	[UniqueID] UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+	[TOQMainID] UNIQUEIDENTIFIER REFERENCES stng.TOQ_Main(UniqueID),
+	[DeleteRecord] [int] DEFAULT 0,
+	[DeleteBy] [varchar](50) NULL,
+	[DeleteDate] [datetime] NULL,
+	[Reason] [varchar](500) NULL,
+	[Exempt] [varchar](500) NULL,
+	[MeetingDate] [datetime] NULL,
+	[MeetingQuorum] [varchar](500) NULL,
+	[TOQComparisonJustification] [varchar](500) NULL,
+	[ScopeDecision] [int] NULL,
+	[TrendDecision] [int] NULL,
+	[TrendJustification] [varchar](4000) NULL,
+	[ScopeValue] [varchar](50) NULL,
+	[TrendValue] [varchar](50) NULL,
+	[TOQRA] [int] NULL,
+	[CreatedBy] [varchar](50) DEFAULT 'SYSTEM',
+	[CreatedDate] [datetime] DEFAULT stng.GetDate()
+)

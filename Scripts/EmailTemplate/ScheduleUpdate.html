@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            font-size: 12pt;
+            font-family: Calibri;
+        }
+
+        table,
+        th {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #eceded;
+            height: 40px;
+        }
+
+        td {
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+            word-wrap: break-word;
+        }
+
+        table {
+            width: 1200px;
+        }
+
+        .lineSpace {
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    Hi,
+    <p style="width:fit-content">Per our conversation <span style="background-color:yellow">[date]</span>, <span style="background-color:yellow">[reason]</span>.</p>
+    <div>Please provide formal concurrence to adjust the schedule as per below by <span style="background-color:yellow">[insert date]</span></div>
+    <p>
+    <table style="width: auto;">
+        <tr style="height: 40px;">
+            <th style="width: 100px">Project #</th>
+            <td style="width: 120px">[var1]</td>
+            <th style="width: 100px">Project Title</th>
+            <td colspan="4">[var2]</td>
+        </tr>
+        <tr style="height: 40px;">
+            <th>Schedule Update #</th>
+            <td></td>            
+            <th>PM / Delegate</th>
+            <td style="width: 140px">[var3]</td>
+            <th style="width: 135px">Commitment Owner</th>
+            <td colspan="2">[var4]</td>
+        </tr>
+        <tr style="height: 40px;">
+			<th>Fragnet Name</th>
+            <td colspan="6">[FragnetName]</td>      
+        </tr>
+        <tr>
+            <th>Activity ID</th>
+            <th colspan="3">Activity Name</th>
+            <th>Current Baseline Date</th>
+            <th style="width: 135px">Revised Baseline Date</th>
+            <th style="width: 100px">Resource</th>
+        </tr>
+        <!--PreReqList-->
+        <!--AtRiskList-->
+    </table>
+</p>
+    <p style="font-style: italic">** If the above schedule update impacts project milestones or execution, than the
+        standard PCR process and approval is required.</p>
+    <p style="margin-top: 40px">Thank You</p>
+</body>
+
+</html>

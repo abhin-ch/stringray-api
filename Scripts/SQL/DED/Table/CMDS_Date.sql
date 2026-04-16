@@ -1,0 +1,28 @@
+CREATE TABLE [stng].[CMDS_Date](
+	[UniqueID] [uniqueidentifier] NOT NULL,
+	[DateType] [varchar](20) NOT NULL,
+	[Value] [varchar](50) NOT NULL,
+	[RAD] [datetime] NOT NULL,
+	[RAB] [varchar](20) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[UniqueID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Value] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [stng].[CMDS_Date] ADD  DEFAULT (newid()) FOR [UniqueID]
+GO
+
+ALTER TABLE [stng].[CMDS_Date] ADD  DEFAULT ([stng].[GetBPTime](getdate())) FOR [RAD]
+GO
+
+ALTER TABLE [stng].[CMDS_Date]  WITH CHECK ADD FOREIGN KEY([RAB])
+REFERENCES [stng].[Admin_User] ([EmployeeID])
+GO
+
+

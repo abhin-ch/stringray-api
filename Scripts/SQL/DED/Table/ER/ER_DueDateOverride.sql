@@ -1,0 +1,23 @@
+CREATE TABLE [stng].[ER_DueDateOverride](
+	[UniqueID] [bigint] IDENTITY(1,1) NOT NULL,
+	[ERID] [uniqueidentifier] NOT NULL,
+	[DueDateOverride] [date] NOT NULL,
+	[Rationale] [varchar](max) NOT NULL,
+	[RAD] [datetime] NOT NULL,
+	[RAB] [varchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[UniqueID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [CNST_stng_ER_DueDateOverride_Unique] UNIQUE NONCLUSTERED 
+(
+	[ERID] ASC,
+	[DueDateOverride] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [stng].[ER_DueDateOverride] ADD  DEFAULT ([stng].[getbptime](getdate())) FOR [RAD]
+GO
+
+

@@ -1,0 +1,18 @@
+CREATE TABLE stng.Budgeting_SDQCustomerApprovalDetail(
+	UniqueID UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+	CustomerApprovalID UNIQUEIDENTIFIER REFERENCES stng.Budgeting_SDQCustomerApproval(UniqueID),
+	[SunkCost] [varchar](50),
+	[RemainingClassII] [varchar](50),
+	[FutureClassV] [varchar](50),
+	[TotalEAC] [varchar](50),
+	[Saving] [varchar](50),
+	[PreviouslyApproved] [varchar](50),
+	[CurrentRequest] [varchar](50),
+	[CurrentApproval] [varchar](50),
+	[ApprovedScope] [varchar](50),
+	[ApprovedTrend] [varchar](50),
+	--[TotalApproved] [varchar](50),
+	[Note] [varchar](2500),
+	CreatedDate [datetime] DEFAULT stng.GetDate(),
+	CreatedBy [varchar](50),
+) 

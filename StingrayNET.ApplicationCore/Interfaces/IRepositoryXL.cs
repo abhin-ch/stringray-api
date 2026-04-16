@@ -1,0 +1,52 @@
+﻿using System.Threading.Tasks;
+using StingrayNET.ApplicationCore.Abstractions;
+namespace StingrayNET.ApplicationCore.Interfaces;
+public interface IRepositoryXL<T, K> : IRepositoryL<T, K> where T : BaseProcedure where K : BaseOperation
+{
+    Task<K> Op_90(T model = null!);
+    Task<K> Op_89(T model = null!);
+    Task<K> Op_88(T model = null!);
+    Task<K> Op_87(T model = null!);
+    Task<K> Op_86(T model = null!);
+    Task<K> Op_85(T model = null!);
+    Task<K> Op_84(T model = null!);
+    Task<K> Op_83(T model = null!);
+    Task<K> Op_82(T model = null!);
+    Task<K> Op_81(T model = null!);
+    Task<K> Op_80(T model = null!);
+    Task<K> Op_79(T model = null!);
+    Task<K> Op_78(T model = null!);
+    Task<K> Op_77(T model = null!);
+    Task<K> Op_76(T model = null!);
+    Task<K> Op_75(T model = null!);
+    Task<K> Op_74(T model = null!);
+    Task<K> Op_73(T model = null!);
+    Task<K> Op_72(T model = null!);
+    Task<K> Op_71(T model = null!);
+    Task<K> Op_70(T model = null!);
+    Task<K> Op_69(T model = null!);
+    Task<K> Op_68(T model = null!);
+    Task<K> Op_67(T model = null!);
+    Task<K> Op_66(T model = null!);
+    Task<K> Op_65(T model = null!);
+    Task<K> Op_64(T model = null!);
+    Task<K> Op_63(T model = null!);
+    Task<K> Op_62(T model = null!);
+    Task<K> Op_61(T model = null!);
+    Task<K> Op_60(T model = null!);
+    Task<K> Op_59(T model = null!);
+    Task<K> Op_58(T model = null!);
+    Task<K> Op_57(T model = null!);
+    Task<K> Op_56(T model = null!);
+    Task<K> Op_55(T model = null!);
+    Task<K> Op_54(T model = null!);
+    Task<K> Op_53(T model = null!);
+    Task<K> Op_52(T model = null!);
+    Task<K> Op_51(T model = null!);
+    Task<K> Op_50(T model = null!);
+    Task<K> Op_49(T model = null!);
+    Task<K> Op_48(T model = null!);
+    Task<K> Op_47(T model = null!);
+    Task<K> Op_46(T model = null!);
+
+}

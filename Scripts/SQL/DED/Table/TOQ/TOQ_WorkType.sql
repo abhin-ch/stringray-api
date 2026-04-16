@@ -1,0 +1,9 @@
+CREATE TABLE stng.TOQ_WorkType
+(
+	UniqueID UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+	TOQUniqueID UNIQUEIDENTIFIER REFERENCES stng.TOQ_Main(UniqueID),
+	TOQ_EmergentID UNIQUEIDENTIFIER REFERENCES stng.TOQ_Emergent(UniqueID),
+    VendorWorkType UNIQUEIDENTIFIER REFERENCES stng.TOQ_VendorWorkType(UniqueID),
+    CreatedDate DATETIME DEFAULT stng.GetDate(),
+	CreatedBy VARCHAR(20) REFERENCES stng.Admin_User(EmployeeID)
+)

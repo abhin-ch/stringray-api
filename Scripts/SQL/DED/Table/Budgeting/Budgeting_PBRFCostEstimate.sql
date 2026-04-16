@@ -1,0 +1,12 @@
+CREATE TABLE stng.Budgeting_PBRFCostEstimate
+(
+	UniqueID UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+	PBRFUID BIGINT REFERENCES stng.Budgeting_PBRMain(PBRUID),
+	Year1 BIT DEFAULT 0,
+	Year2 BIT DEFAULT 0,
+	[Year] INT DEFAULT 0,
+	[Internal] INT DEFAULT 0,
+	[External] INT DEFAULT 0,
+	CreatedDate DATETIME DEFAULT stng.GetDate(),
+	CreatedBy VARCHAR(20),
+)

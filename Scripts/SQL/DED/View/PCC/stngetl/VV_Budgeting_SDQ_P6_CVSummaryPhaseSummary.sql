@@ -1,0 +1,39 @@
+CREATE OR ALTER VIEW [stngetl].[VV_Budgeting_SDQ_P6_CVSummaryPhaseSummary]
+AS
+with newinfo as
+(
+	select SDQUID,CONCAT(SDQUID,'-',PhaseCode) UniqueID,PhaseCode, PhaseC,
+	sum(LabourRemainingUnits) as LabourRemainingUnits,
+	sum(Budget) as Budget, sum(LabourRemainingCost) as LabourRemainingCost,
+	sum(NonLabourRemainingCost) as NonLabourRemainingCost, 
+	min(CAST(CurrentStart AS DATE)) as CurrentStart,
+	cast(max(cast(StartActualized as tinyint)) as bit) as StartActualized,
+	max(CAST(CurrentEnd AS DATE)) as CurrentEnd,
+	cast(min(cast(EndActualized as tinyint)) as bit) as EndActualized
+	from stngetl.VV_Budgeting_SDQ_P6_CVSDS
+	where Legacy = 0
+	group by SDQUID, PhaseCode, PhaseC
+),
+legacy as
+(
+	select SDID as SDQUID, CONCAT(SDID,'-',Phase) UniqueID,N.UniqueID ID, Phase as PhaseCode, x.PhaseC,
+	x.BudgetSum as Budget, x.LabourSum as LabourRemainingCost, x.NonlabourSum as NonLabourRemainingCost,
+	case when try_convert(datetime2, x.MinStart) is not null then x.MinStart
+	when x.MinStart like '%A' then left(x.MinStart,len(x.MinStart) - 2) 	
+	else replace(x.MinStart,'*','') end as CurrentStart, 
+	case when x.MinStart like '%A' then 1 else 0 end as StartActualized,
+	case when try_convert(datetime2, x.MaxFinish) is not null then x.MaxFinish
+	when x.MaxFinish like '%A' then left(x.MaxFinish,len(x.MaxFinish) - 2) 	
+	else replace(x.MaxFinish,'*','') end as CurrentEnd, 
+	case when x.MaxFinish like '%A' then 1 else 0 end as EndActualized
+	from stng.Budgeting_SDQ_P6_Legacy_ClassVSummary_Summary as x
+	LEFT JOIN newinfo N ON N.UniqueID = CONCAT(SDID,'-',Phase)
+)
+select SDQUID,UniqueID, PhaseCode, PhaseC, Budget, LabourRemainingUnits, LabourRemainingCost, NonLabourRemainingCost, CurrentStart, StartActualized, CurrentEnd, EndActualized
+from newinfo
+union
+select L.SDQUID,L.UniqueID, L.PhaseCode, L.PhaseC, L.Budget, null as LabourRemainingUnits, L.LabourRemainingCost, L.NonLabourRemainingCost, 
+L.CurrentStart, L.StartActualized, L.CurrentEnd, L.EndActualized
+from legacy L
+LEFT OUTER JOIN newinfo N ON N.UniqueID = L.UniqueID
+WHERE L.ID IS NULL

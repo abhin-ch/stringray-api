@@ -1,0 +1,8 @@
+CREATE OR ALTER PROCEDURE [stng].[SP_Budgeting_SDQP6Schedule] (
+	@EmployeeID NVARCHAR(255) = NULL
+	,@SDQUID BIGINT = NULL
+)
+AS
+BEGIN
+ PRINT ''
+END

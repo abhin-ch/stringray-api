@@ -1,0 +1,31 @@
+CREATE TABLE [stng].[TOQ_Band](
+	[UniqueID] [uniqueidentifier] NOT NULL,
+	[TOQMainID] [uniqueidentifier] NOT NULL,
+	[BandRate] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [varchar](20) NULL,
+ CONSTRAINT [PK__TOQ_Band__A2A2BAAA390C79C2] PRIMARY KEY CLUSTERED 
+(
+	[UniqueID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [stng].[TOQ_Band] ADD  CONSTRAINT [DF__TOQ_Band__Unique__593122D0]  DEFAULT (newid()) FOR [UniqueID]
+GO
+
+ALTER TABLE [stng].[TOQ_Band]  WITH CHECK ADD  CONSTRAINT [FK__TOQ_Band__Admin_User] FOREIGN KEY([CreatedBy])
+REFERENCES [stng].[Admin_User] ([EmployeeID])
+GO
+
+ALTER TABLE [stng].[TOQ_Band] CHECK CONSTRAINT [FK__TOQ_Band__Admin_User]
+GO
+
+ALTER TABLE [stng].[TOQ_Band]  WITH CHECK ADD  CONSTRAINT [FK__TOQ_Band__TOQMai__52842541] FOREIGN KEY([TOQMainID])
+REFERENCES [stng].[TOQ_Main] ([UniqueID])
+GO
+
+ALTER TABLE [stng].[TOQ_Band] CHECK CONSTRAINT [FK__TOQ_Band__TOQMai__52842541]
+GO
+
+

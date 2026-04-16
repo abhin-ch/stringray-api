@@ -1,0 +1,22 @@
+CREATE TABLE [stng].[Common_ETLSource](
+	[SourceId] [uniqueidentifier] NOT NULL,
+	[SourceName] [nvarchar](60) NOT NULL,
+	[SourceDescription] [nvarchar](100) NULL,
+	[RAB] [nvarchar](60) NOT NULL,
+	[RAD] [datetime] NOT NULL,
+ CONSTRAINT [PK_Common_ETLSource] PRIMARY KEY CLUSTERED 
+(
+	[SourceId] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[SourceName] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [stng].[Common_ETLSource] ADD  DEFAULT (newid()) FOR [SourceId]
+GO
+
+ALTER TABLE [stng].[Common_ETLSource] ADD  DEFAULT (getdate()) FOR [RAD]
+GO

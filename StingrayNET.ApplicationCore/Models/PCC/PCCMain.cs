@@ -1,0 +1,99 @@
+using System;
+
+namespace StingrayNET.ApplicationCore.Models.PCC;
+
+public class PCCMain
+{
+    public string Type { get; set; }
+    public string UniqueID { get; set; }
+    public int? RecordTypeUniqueID { get; set; }
+    public string RecordID { get; set; }
+    public string Revision { get; set; }
+    public int? SubRevision { get; set; }
+    public int? LatestRevision { get; set; }
+    public string ParentPBRUID { get; set; }
+    public string ProjectNo { get; set; }
+    public string ProjectTitle { get; set; }
+    public string ProjectStatus { get; set; }
+    public DateTime? TargetDMApprovalDate { get; set; }
+    public string TargetExecutionWindow { get; set; }
+    public string StatusID { get; set; }
+    public string Status { get; set; }
+    public string StatusValue { get; set; }
+    public DateTime? CurrentStatusDate { get; set; }
+    public DateTime? RequestDate { get; set; }
+    public string RequestFrom { get; set; }
+    public string RequestFromID { get; set; }
+    public string PCS { get; set; }
+    public string PCSID { get; set; }
+    public string OE { get; set; }
+    public string OEID { get; set; }
+    public string Planner { get; set; }
+    public string PlannerID { get; set; }
+    public string ProjM { get; set; }
+    public string ProjMID { get; set; }
+    public string ProgMID { get; set; }
+    public string ProgM { get; set; }
+    public string Section { get; set; }
+    public string SMID { get; set; }
+    public string SM { get; set; }
+    public string DMID { get; set; }
+    public string DM { get; set; }
+    public string DivMID { get; set; }
+    public string DivM { get; set; }
+    public string DMEPID { get; set; }
+    public string DMEP { get; set; }
+    public string FundingSourceID { get; set; }
+    public string FundingSource { get; set; }
+    public string ProjectTypeID { get; set; }
+    public string ProjectType { get; set; }
+    public string ProblemStatement { get; set; }
+    public string ProblemStatementLong { get; set; }
+    public string CurrentScopeDefinition { get; set; }
+    public string CurrentScopeDefinitionLong { get; set; }
+    public string Risk { get; set; }
+    public string RiskLong { get; set; }
+    public string Assumption { get; set; }
+    public string AssumptionLong { get; set; }
+    public string BusinessDriver { get; set; }
+    public string RC { get; set; }
+    public string RCID { get; set; }
+    public string Objective { get; set; }
+    public string CustomerNeed { get; set; }
+    public DateTime? CustomerNeedDate { get; set; }
+    public string CustomerNeedID { get; set; }
+    public int? Phase { get; set; }
+    public string PhaseDescription { get; set; }
+    public string PrimaryDiscipline { get; set; }
+    public string ComplexityID { get; set; }
+    public int? PreviouslyApproved { get; set; }
+    public int? RequestedScope { get; set; }
+    public string VarianceComment { get; set; }
+    public string CreatedBy { get; set; }
+    public string Verifier { get; set; }
+    public string VerifierID { get; set; }
+    public string InfoRef { get; set; }
+    public string Station { get; set; }
+    public string Total { get; set; }
+    public string Year1 { get; set; }
+    public string Internal1 { get; set; }
+    public string External1 { get; set; }
+    public string Year2 { get; set; }
+    public string Internal2 { get; set; }
+    public string External2 { get; set; }
+    public string PendingApprovers { get; set; }
+    public bool? Legacy { get; set; }
+    public int? SDQUID { get; set; }
+    public decimal? LAMP3 { get; set; }
+    public int? HasP6 { get; set; }
+    public DateTime? SMApprovalDate { get; set; }
+    public DateTime? DMApprovalDate { get; set; }
+    public DateTime? DivMApprovalDate { get; set; }
+    public string LAMP4 { get; set; }
+    public string LAMP4Baseline { get; set; }
+    public string SMAll { get; set; }
+    public string RevisionHeader { get; set; }
+    public string DropdownFilter { get; set; }
+    public bool? IsEBS { get; set; } = false;
+    public bool? IsLeadPlanner { get; set; } = false;
+}

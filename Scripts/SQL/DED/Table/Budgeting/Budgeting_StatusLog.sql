@@ -1,0 +1,9 @@
+CREATE TABLE stng.Budgeting_StatusLog(
+	UniqueID UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+	RecordTypeUID BIGINT NOT NULL,
+	Type VARCHAR(5) NOT NULL,
+	StatusID UNIQUEIDENTIFIER REFERENCES stng.Common_ValueLabel(UniqueID),
+	Comment NVARCHAR(4000),
+	CreatedBy VARCHAR(20),
+	CreatedDate DATETIME DEFAULT stng.GetDate(),
+)

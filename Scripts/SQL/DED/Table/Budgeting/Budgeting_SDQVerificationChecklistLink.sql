@@ -1,0 +1,9 @@
+CREATE TABLE stng.Budgeting_SDQVerificationChecklistLink(
+	UniqueID UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+	InternalID INT IDENTITY(1,1),
+	SDQUID BIGINT REFERENCES stng.Budgeting_SDQMain(SDQUID) ON DELETE CASCADE NOT NULL,
+	CreatedDate DATETIME DEFAULT stng.GetDate(),	
+	CreatedBy VARCHAR(20) REFERENCES stng.Admin_User(EmployeeID),
+	Current BIT DEFAULT 0,
+	P6LinkID UNIQUEIDENTIFIER REFERENCES stng.Budgeting_SDQP6Link(UniqueID)
+)

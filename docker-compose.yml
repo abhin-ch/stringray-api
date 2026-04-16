@@ -1,0 +1,8 @@
+services:
+    stingrayapi:
+        image: ${CONTAINERNAME}/stable:latest
+        build:
+            context: .
+            dockerfile: dockerfile
+            args: 
+                ENVNAME: ${ENVNAME}

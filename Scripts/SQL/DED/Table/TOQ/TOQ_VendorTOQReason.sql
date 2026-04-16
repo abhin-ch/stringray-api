@@ -1,0 +1,8 @@
+CREATE TABLE stng.TOQ_VendorTOQReason(
+	UniqueID UNIQUEIDENTIFIER DEFAULT NEWID(),
+	VendorAssignedID UNIQUEIDENTIFIER REFERENCES stng.TOQ_VendorAssigned(UniqueID),
+	ReasonForTOQID UNIQUEIDENTIFIER REFERENCES stng.Common_ValueLabel(UniqueID),
+)
+
+ALTER TABLE stng.TOQ_VendorTOQReason ADD CreatedDate DATETIME DEFAULT stng.GetDate()
+ALTER TABLE stng.TOQ_VendorTOQReason ADD CreatedBy VARCHAR(20)

@@ -1,0 +1,27 @@
+CREATE TABLE [stng].[Common_ETLModuleSource](
+	[MSId] [bigint] IDENTITY(1,1) NOT NULL,
+	[ETLID] [uniqueidentifier] NOT NULL,
+	[SourceID] [uniqueidentifier] NOT NULL,
+	[RAD] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MSId] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [CNST_Common_ETLModuleSource_Unique] UNIQUE NONCLUSTERED 
+(
+	[ETLID] ASC,
+	[SourceID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [stng].[Common_ETLModuleSource] ADD  DEFAULT (getdate()) FOR [RAD]
+GO
+
+ALTER TABLE [stng].[Common_ETLModuleSource]  WITH CHECK ADD FOREIGN KEY([ETLID])
+REFERENCES [stng].[Common_ETLMap] ([ETLID])
+GO
+
+ALTER TABLE [stng].[Common_ETLModuleSource]  WITH CHECK ADD FOREIGN KEY([SourceID])
+REFERENCES [stng].[Common_ETLSource] ([SourceId])
+GO

@@ -1,0 +1,39 @@
+/****** Object:  Table [stng].[EI_Status]    Script Date: 10/15/2024 3:59:27 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [stng].[EI_Status](
+	[UniqueID] [uniqueidentifier] NOT NULL,
+	[Status] [varchar](100) NOT NULL,
+	[StatusShort] [varchar](10) NOT NULL,
+	[RAD] [datetime] NOT NULL,
+	[RAB] [varchar](20) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[UniqueID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Status] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[StatusShort] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [stng].[EI_Status] ADD  DEFAULT (newid()) FOR [UniqueID]
+GO
+
+ALTER TABLE [stng].[EI_Status] ADD  DEFAULT ([stng].[GetBPTime](getdate())) FOR [RAD]
+GO
+
+ALTER TABLE [stng].[EI_Status]  WITH CHECK ADD FOREIGN KEY([RAB])
+REFERENCES [stng].[Admin_User_Original] ([EmployeeID])
+GO
+
+

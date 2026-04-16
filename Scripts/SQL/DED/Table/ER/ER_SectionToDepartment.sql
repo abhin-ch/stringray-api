@@ -1,0 +1,22 @@
+CREATE TABLE [stng].[ER_SectionToDepartment](
+	[DPSECID] [bigint] IDENTITY(1,1) NOT NULL,
+	[SECID] [bigint] NULL,
+	[DPID] [bigint] NULL,
+	[RAD] [datetime] NOT NULL,
+	[RAB] [varchar](20) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[DPSECID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [stng].[ER_SectionToDepartment]  WITH CHECK ADD FOREIGN KEY([SECID])
+REFERENCES [stng].[ER_Section] ([UniqueID])
+GO
+
+ALTER TABLE [stng].[ER_SectionToDepartment]  WITH CHECK ADD FOREIGN KEY([DPID])
+REFERENCES [stng].[ER_Department] ([UniqueID])
+GO
+
+

@@ -1,0 +1,34 @@
+/****** Object:  Table [stng].[SST_Main]    Script Date: 12/5/2025 10:26:08 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [stng].[SST_Main](
+	[UniqueID] [uniqueidentifier] NOT NULL,
+	[PM] [varchar](50) NOT NULL,
+	[RAD] [datetime] NOT NULL,
+	[RAB] [varchar](20) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[UniqueID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[PM] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [stng].[SST_Main] ADD  DEFAULT (newid()) FOR [UniqueID]
+GO
+
+ALTER TABLE [stng].[SST_Main] ADD  DEFAULT ([stng].[getbptime](getdate())) FOR [RAD]
+GO
+
+ALTER TABLE [stng].[SST_Main]  WITH CHECK ADD FOREIGN KEY([RAB])
+REFERENCES [stng].[Admin_User] ([EmployeeID])
+GO
+
+

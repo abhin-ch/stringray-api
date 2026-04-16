@@ -1,0 +1,5 @@
+EXEC stng.SP_Common_CreateValueLabel @Module='TOQLite', @Group='Record',@Field='Type',@Label='Lite (Section Consulting)',@CreatedBy='619704'	
+EXEC stng.SP_Common_CreateValueLabel @Module='TOQLite', @Group='Record',@Field='Type',@Label='Lite (ER)',@CreatedBy='619704'
+EXEC stng.SP_Common_CreateValueLabel @Module='TOQLite', @Group='Record',@Field='Type',@Label='Lite (OE/ADE)',@CreatedBy='619704'	
+EXEC stng.SP_Common_CreateValueLabel @Module='TOQLite', @Group='Record',@Field='Type',@Label='Lite (General)',@CreatedBy='619704'	
+EXEC stng.SP_Common_CreateValueLabel @Module='TOQLite', @Group='Record',@Field='Type',@Label='Lite (Core Consulting)',@CreatedBy='619704'	

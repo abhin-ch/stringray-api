@@ -1,0 +1,15 @@
+CREATE TABLE [stng].[CSA_StatusLog](
+	[CSASID] [bigint] IDENTITY(1,1) NOT NULL,
+	[CSAID] [bigint] NULL,
+	[CSAStatus] [varchar](5) NULL,
+	[Comment] [varchar](255) NULL,
+	[RAD] [datetime] NULL,
+	[RAB] [varchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CSASID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
